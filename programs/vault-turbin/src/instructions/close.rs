@@ -1,9 +1,9 @@
-use crate::{events::DepositEvent, state::Vault};
+use crate::state::Vault;
 use anchor_lang::prelude::*;
 
 #[derive(Accounts)]
 pub struct Close<'info> {
-    #[account(mut , has_one = owner)]
+    #[account(mut , has_one = owner , close = owner)]
     pub vault: Account<'info, Vault>,
 
     pub owner: Signer<'info>,
@@ -11,7 +11,6 @@ pub struct Close<'info> {
 
 impl<'info> Close<'info> {
     pub fn close_instruction(&mut self) -> Result<()> {
-        self.vault.close();
         Ok(())
     }
 }

@@ -1,4 +1,4 @@
-use crate::{events::WithdrawEvent, state::Vault};
+use crate::{errors::VaultError, events::WithdrawEvent, state::Vault};
 use anchor_lang::prelude::*;
 
 #[derive(Accounts)]

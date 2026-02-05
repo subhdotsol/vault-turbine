@@ -10,7 +10,7 @@ pub struct Deposit<'info> {
 }
 
 impl<'info> Deposit<'info> {
-    pub fn intialize_instruction(&mut self, amount: u64) -> Result<()> {
+    pub fn deposit_instruction(&mut self, amount: u64) -> Result<()> {
         self.vault.balance += amount;
         emit!(DepositEvent { amount });
         Ok(())
